@@ -30,7 +30,6 @@ def getdata(filename):
 def build_tree_from_str(theString,theTree,count):
     N=len(theString)
     i=0
-    count=0
     while i<(N-1):
         word1=theString[i]
         word2=theString[i+1]
@@ -43,6 +42,7 @@ def build_tree_from_str(theString,theTree,count):
         voice1=w_dict[word1]
         voice2=w_dict[word2]
         for voice1_i in voice1:
+            count=count+1
             if voice1_i in theTree.keys():
                 son1=theTree[voice1_i]
             else:
@@ -137,15 +137,3 @@ with open('Freq_Tree.json','a') as f:
     f.close()
 
 print('training is over')
-
-
-
-# 检验v_dict,w_dict
-# filename='v_w_dict.json'
-# with open(filename,'w') as f:
-#     # json.dump(v_dict,f)
-#     json.dump(w_dict,f)
-
-# with open(filename) as f:
-#     a=json.load(f)
-# print(a)
